@@ -1,0 +1,32 @@
+function addEntry() {
+  const note = document.getElementById("note").value;
+  const mood = document.getElementById("mood").value;
+  const list = document.getElementById("journal");
+
+  if (note.trim() === "") {
+    alert("Please write something!");
+    return;
+  }
+
+  // Create list item
+  const li = document.createElement("li");
+  li.textContent = note + " - " + mood.toUpperCase();
+
+  // Style entry based on mood
+  if (mood === "happy") {
+    li.style.background = "#4caf50";
+    document.body.style.backgroundColor = "#d4edda";
+  } else if (mood === "sad") {
+    li.style.background = "#2196f3";
+    document.body.style.backgroundColor = "#dbeafe";
+  } else if (mood === "stressed") {
+    li.style.background = "#f44336";
+    document.body.style.backgroundColor = "#fdecea";
+  } else if (mood === "excited") {
+    li.style.background = "#ff9800";
+    document.body.style.backgroundColor = "#fff3e0";
+  }
+
+  list.appendChild(li);
+  document.getElementById("note").value = "";
+}
